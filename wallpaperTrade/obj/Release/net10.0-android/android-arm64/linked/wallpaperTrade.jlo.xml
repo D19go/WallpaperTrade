@@ -1,0 +1,59 @@
+<api>
+  <jcw-types>
+    <type name="BootReceiver" package="crc640229306f97c153b1" application_java_class="android.app.Application" mono_runtime_initialization="mono.MonoPackageManager.LoadApplication (context);" extends_type="android.content.BroadcastReceiver" partial_assembly_qualified_name="wallpaperTrade.BootReceiver, wallpaperTrade">
+      <constructors>
+        <constructor name="BootReceiver" method="n_.ctor:()V:" jni_signature="()V" managed_parameters="" retval="void" is_dynamically_registered="True" />
+      </constructors>
+      <methods>
+        <method name="onReceive" method="n_onReceive:(Landroid/content/Context;Landroid/content/Intent;)V:GetOnReceive_Landroid_content_Context_Landroid_content_Intent_Handler" jni_signature="(Landroid/content/Context;Landroid/content/Intent;)V" params="android.content.Context p0, android.content.Intent p1" retval="void" super_call="p0, p1" activate_call="p0, p1" />
+      </methods>
+    </type>
+    <type name="MainActivity" package="crc640229306f97c153b1" application_java_class="android.app.Application" mono_runtime_initialization="mono.MonoPackageManager.LoadApplication (context);" extends_type="android.app.Activity" partial_assembly_qualified_name="wallpaperTrade.MainActivity, wallpaperTrade">
+      <constructors>
+        <constructor name="MainActivity" method="n_.ctor:()V:" jni_signature="()V" managed_parameters="" retval="void" is_dynamically_registered="True" />
+      </constructors>
+      <methods>
+        <method name="onCreate" method="n_onCreate:(Landroid/os/Bundle;)V:GetOnCreate_Landroid_os_Bundle_Handler" jni_signature="(Landroid/os/Bundle;)V" params="android.os.Bundle p0" retval="void" super_call="p0" activate_call="p0" />
+        <method name="onResume" method="n_onResume:()V:GetOnResumeHandler" jni_signature="()V" retval="void" />
+        <method name="onActivityResult" method="n_onActivityResult:(IILandroid/content/Intent;)V:GetOnActivityResult_IILandroid_content_Intent_Handler" jni_signature="(IILandroid/content/Intent;)V" params="int p0, int p1, android.content.Intent p2" retval="void" super_call="p0, p1, p2" activate_call="p0, p1, p2" />
+      </methods>
+    </type>
+    <type name="MainActivity_InsetsListener" package="crc640229306f97c153b1" application_java_class="android.app.Application" mono_runtime_initialization="mono.MonoPackageManager.LoadApplication (context);" extends_type="java.lang.Object" partial_assembly_qualified_name="wallpaperTrade.MainActivity+InsetsListener, wallpaperTrade">
+      <implemented_interfaces>
+        <interface name="android.view.View.OnApplyWindowInsetsListener" />
+      </implemented_interfaces>
+      <constructors>
+        <constructor name="MainActivity_InsetsListener" method="n_.ctor:()V:" jni_signature="()V" managed_parameters="" retval="void" is_dynamically_registered="True" />
+      </constructors>
+      <methods>
+        <method name="onApplyWindowInsets" method="n_onApplyWindowInsets:(Landroid/view/View;Landroid/view/WindowInsets;)Landroid/view/WindowInsets;:GetOnApplyWindowInsets_Landroid_view_View_Landroid_view_WindowInsets_Handler:Android.Views.View+IOnApplyWindowInsetsListenerInvoker, Mono.Android, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" jni_signature="(Landroid/view/View;Landroid/view/WindowInsets;)Landroid/view/WindowInsets;" params="android.view.View p0, android.view.WindowInsets p1" retval="android.view.WindowInsets" super_call="p0, p1" activate_call="p0, p1" />
+      </methods>
+    </type>
+    <type name="WallpaperMonitorService" package="crc640229306f97c153b1" application_java_class="android.app.Application" mono_runtime_initialization="mono.MonoPackageManager.LoadApplication (context);" extends_type="android.app.Service" partial_assembly_qualified_name="wallpaperTrade.WallpaperMonitorService, wallpaperTrade">
+      <constructors>
+        <constructor name="WallpaperMonitorService" method="n_.ctor:()V:" jni_signature="()V" managed_parameters="" retval="void" is_dynamically_registered="True" />
+      </constructors>
+      <methods>
+        <method name="onCreate" method="n_onCreate:()V:GetOnCreateHandler" jni_signature="()V" retval="void" />
+        <method name="onStartCommand" method="n_onStartCommand:(Landroid/content/Intent;II)I:GetOnStartCommand_Landroid_content_Intent_IIHandler" jni_signature="(Landroid/content/Intent;II)I" params="android.content.Intent p0, int p1, int p2" retval="int" super_call="p0, p1, p2" activate_call="p0, p1, p2" />
+        <method name="onDestroy" method="n_onDestroy:()V:GetOnDestroyHandler" jni_signature="()V" retval="void" />
+        <method name="onBind" method="n_onBind:(Landroid/content/Intent;)Landroid/os/IBinder;:GetOnBind_Landroid_content_Intent_Handler" jni_signature="(Landroid/content/Intent;)Landroid/os/IBinder;" params="android.content.Intent p0" retval="android.os.IBinder" super_call="p0" activate_call="p0" />
+      </methods>
+    </type>
+    <type name="ScreenReceiver" package="crc640229306f97c153b1" application_java_class="android.app.Application" mono_runtime_initialization="mono.MonoPackageManager.LoadApplication (context);" extends_type="android.content.BroadcastReceiver" partial_assembly_qualified_name="wallpaperTrade.ScreenReceiver, wallpaperTrade">
+      <constructors>
+        <constructor name="ScreenReceiver" method="n_.ctor:()V:" jni_signature="()V" managed_parameters="" retval="void" is_dynamically_registered="True" />
+      </constructors>
+      <methods>
+        <method name="onReceive" method="n_onReceive:(Landroid/content/Context;Landroid/content/Intent;)V:GetOnReceive_Landroid_content_Context_Landroid_content_Intent_Handler" jni_signature="(Landroid/content/Context;Landroid/content/Intent;)V" params="android.content.Context p0, android.content.Intent p1" retval="void" super_call="p0, p1" activate_call="p0, p1" />
+      </methods>
+    </type>
+  </jcw-types>
+  <acw-types partial-assembly-name="wallpaperTrade" module-name="wallpaperTrade.dll">
+    <type assembly-qualified-name="wallpaperTrade.BootReceiver, wallpaperTrade, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" compat-jni-name="wallpapertrade.BootReceiver" java-key="crc640229306f97c153b1.BootReceiver" managed-key="wallpaperTrade.BootReceiver" partial-assembly-qualified-name="wallpaperTrade.BootReceiver, wallpaperTrade" />
+    <type assembly-qualified-name="wallpaperTrade.MainActivity, wallpaperTrade, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" compat-jni-name="wallpapertrade.MainActivity" java-key="crc640229306f97c153b1.MainActivity" managed-key="wallpaperTrade.MainActivity" partial-assembly-qualified-name="wallpaperTrade.MainActivity, wallpaperTrade" />
+    <type assembly-qualified-name="wallpaperTrade.MainActivity+InsetsListener, wallpaperTrade, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" compat-jni-name="wallpapertrade.MainActivity_InsetsListener" java-key="crc640229306f97c153b1.MainActivity_InsetsListener" managed-key="wallpaperTrade.MainActivity.InsetsListener" partial-assembly-qualified-name="wallpaperTrade.MainActivity+InsetsListener, wallpaperTrade" />
+    <type assembly-qualified-name="wallpaperTrade.WallpaperMonitorService, wallpaperTrade, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" compat-jni-name="wallpapertrade.WallpaperMonitorService" java-key="crc640229306f97c153b1.WallpaperMonitorService" managed-key="wallpaperTrade.WallpaperMonitorService" partial-assembly-qualified-name="wallpaperTrade.WallpaperMonitorService, wallpaperTrade" />
+    <type assembly-qualified-name="wallpaperTrade.ScreenReceiver, wallpaperTrade, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" compat-jni-name="wallpapertrade.ScreenReceiver" java-key="crc640229306f97c153b1.ScreenReceiver" managed-key="wallpaperTrade.ScreenReceiver" partial-assembly-qualified-name="wallpaperTrade.ScreenReceiver, wallpaperTrade" />
+  </acw-types>
+</api>

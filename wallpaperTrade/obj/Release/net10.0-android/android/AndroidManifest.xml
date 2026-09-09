@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Este código foi gerado por uma ferramenta.
+    Ele foi gerado de C:\Users\Gabriel\Desktop\k\wallpaperTrade\wallpaperTrade\AndroidManifest.xml
+    As alterações feitas neste arquivo poderão causar comportamento incorreto e serão perdidas se
+    o conteúdo for regenerado.
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.dsc.WallpaperTrade" android:versionCode="1" android:versionName="1.0">
+  <uses-sdk android:minSdkVersion="24" android:targetSdkVersion="36" />
+  <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+  <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
+  <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+  <uses-permission android:name="android.permission.SET_WALLPAPER" />
+  <uses-permission android:name="android.permission.WAKE_LOCK" />
+  <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+  <application android:name="android.app.Application" android:allowBackup="true" android:extractNativeLibs="true" android:icon="@mipmap/appicon" android:label="WallpaperTrade" android:supportsRtl="true">
+    <service android:name="wallpaperTrade.WallpaperMonitorService" android:enabled="true" android:exported="false" android:foregroundServiceType="specialUse">
+      <property android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE" android:value="Monitoramento da tela para troca automática de wallpaper" />
+    </service>
+    <receiver android:name="crc640229306f97c153b1.BootReceiver" android:directBootAware="false" android:enabled="true" android:exported="true">
+      <intent-filter>
+        <action android:name="android.intent.action.BOOT_COMPLETED" />
+        <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+      </intent-filter>
+    </receiver>
+    <activity android:name="crc640229306f97c153b1.MainActivity" android:exported="true" android:label="Wallpaper Trade">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.LAUNCHER" />
+      </intent-filter>
+    </activity>
+    <service android:name="crc640229306f97c153b1.WallpaperMonitorService" android:enabled="true" android:exported="false" android:foregroundServiceType="specialUse">
+      <meta-data android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE" android:value="Monitoramento da tela para troca automática de wallpaper" />
+    </service>
+    <receiver android:name="crc640229306f97c153b1.ScreenReceiver" android:enabled="false" android:exported="false" />
+    <provider android:name="mono.MonoRuntimeProvider" android:authorities="com.dsc.WallpaperTrade.mono.MonoRuntimeProvider.__mono_init__" android:exported="false" android:initOrder="1999999999" />
+  </application>
+</manifest>

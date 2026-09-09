@@ -1,0 +1,24 @@
+<api type="release" assembly-name="Java.Interop" mvid="54c0ac6f8c42497c8904d1ba92b083e4">
+  <module assembly-name="Java.Interop" mvid="54c0ac6f8c42497c8904d1ba92b083e4" mvid-bytes="b6zAVEKMfEmJBNG6krCD5A==">
+    <duplicates>
+      <entry java-name="[Ljava/lang/Object;" managed-type-name="Java.Interop.JavaPrimitiveArray`1" token="33554441" skip-in-java-to-managed="True" />
+      <entry java-name="[Ljava/lang/Object;" managed-type-name="Java.Interop.JavaObjectArray`1" token="33554444" skip-in-java-to-managed="True" />
+    </duplicates>
+    <types-scratch>
+      <entry key="[Ljava/lang/Object;" java-name="[Ljava/lang/Object;" managed-type-name="Java.Interop.JavaArray`1" token="33554438" skip-in-java-to-managed="True" />
+      <entry key="java/lang/Throwable" java-name="java/lang/Throwable" managed-type-name="Java.Interop.JavaException" token="33554442" />
+      <entry key="java/lang/Object" java-name="java/lang/Object" managed-type-name="Java.Interop.JavaObject" token="33554443" />
+      <entry key="[Z" java-name="[Z" managed-type-name="Java.Interop.JavaBooleanArray" token="33554474" />
+      <entry key="[B" java-name="[B" managed-type-name="Java.Interop.JavaSByteArray" token="33554477" />
+      <entry key="[C" java-name="[C" managed-type-name="Java.Interop.JavaCharArray" token="33554480" />
+      <entry key="[S" java-name="[S" managed-type-name="Java.Interop.JavaInt16Array" token="33554483" />
+      <entry key="[I" java-name="[I" managed-type-name="Java.Interop.JavaInt32Array" token="33554486" />
+      <entry key="[J" java-name="[J" managed-type-name="Java.Interop.JavaInt64Array" token="33554489" />
+      <entry key="[F" java-name="[F" managed-type-name="Java.Interop.JavaSingleArray" token="33554492" />
+      <entry key="[D" java-name="[D" managed-type-name="Java.Interop.JavaDoubleArray" token="33554495" />
+      <entry key="net/dot/jni/internal/JavaProxyObject" java-name="net/dot/jni/internal/JavaProxyObject" managed-type-name="Java.Interop.JavaProxyObject" token="33554498" />
+      <entry key="net/dot/jni/internal/JavaProxyThrowable" java-name="net/dot/jni/internal/JavaProxyThrowable" managed-type-name="Java.Interop.JavaProxyThrowable" token="33554499" />
+      <entry key="net/dot/jni/ManagedPeer" java-name="net/dot/jni/ManagedPeer" managed-type-name="Java.Interop.ManagedPeer" token="33554569" />
+    </types-scratch>
+  </module>
+</api>

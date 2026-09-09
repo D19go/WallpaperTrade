@@ -1,0 +1,96 @@
+Android.Content.ISharedPreferences, Mono.Android;android.content.SharedPreferences
+Android.Content.ISharedPreferences;android.content.SharedPreferences
+android.content.SharedPreferences;android.content.SharedPreferences
+Android.Content.ISharedPreferencesEditor, Mono.Android;android.content.SharedPreferences$Editor
+Android.Content.ISharedPreferencesEditor;android.content.SharedPreferences$Editor
+android.content.SharedPreferences$Editor;android.content.SharedPreferences$Editor
+Android.Content.ISharedPreferencesOnSharedPreferenceChangeListener, Mono.Android;android.content.SharedPreferences$OnSharedPreferenceChangeListener
+Android.Content.ISharedPreferencesOnSharedPreferenceChangeListener;android.content.SharedPreferences$OnSharedPreferenceChangeListener
+android.content.SharedPreferences$OnSharedPreferenceChangeListener;android.content.SharedPreferences$OnSharedPreferenceChangeListener
+Android.Database.ICursor, Mono.Android;android.database.Cursor
+Android.Database.ICursor;android.database.Cursor
+android.database.Cursor;android.database.Cursor
+Android.OS.IBinder, Mono.Android;android.os.IBinder
+Android.OS.IBinder;android.os.IBinder
+android.os.IBinder;android.os.IBinder
+Android.OS.IBinder+IFrozenStateChangeCallback, Mono.Android;android.os.IBinder$FrozenStateChangeCallback
+Android.OS.IBinder.IFrozenStateChangeCallback;android.os.IBinder$FrozenStateChangeCallback
+android.os.IBinder$FrozenStateChangeCallback;android.os.IBinder$FrozenStateChangeCallback
+Android.OS.IBinderDeathRecipient, Mono.Android;android.os.IBinder$DeathRecipient
+Android.OS.IBinderDeathRecipient;android.os.IBinder$DeathRecipient
+android.os.IBinder$DeathRecipient;android.os.IBinder$DeathRecipient
+Android.OS.IInterface, Mono.Android;android.os.IInterface
+Android.OS.IInterface;android.os.IInterface
+android.os.IInterface;android.os.IInterface
+Android.Runtime.InputStreamAdapter, Mono.Android;mono.android.runtime.InputStreamAdapter
+Android.Runtime.InputStreamAdapter;mono.android.runtime.InputStreamAdapter
+mono.android.runtime.InputStreamAdapter;mono.android.runtime.InputStreamAdapter
+Android.Runtime.JavaObject, Mono.Android;mono.android.runtime.JavaObject
+Android.Runtime.JavaObject;mono.android.runtime.JavaObject
+mono.android.runtime.JavaObject;mono.android.runtime.JavaObject
+Android.Runtime.JavaProxyThrowable, Mono.Android;android.runtime.JavaProxyThrowable
+Android.Runtime.JavaProxyThrowable;android.runtime.JavaProxyThrowable
+android.runtime.JavaProxyThrowable;android.runtime.JavaProxyThrowable
+Android.Runtime.OutputStreamAdapter, Mono.Android;mono.android.runtime.OutputStreamAdapter
+Android.Runtime.OutputStreamAdapter;mono.android.runtime.OutputStreamAdapter
+mono.android.runtime.OutputStreamAdapter;mono.android.runtime.OutputStreamAdapter
+Android.Util.IAttributeSet, Mono.Android;android.util.AttributeSet
+Android.Util.IAttributeSet;android.util.AttributeSet
+android.util.AttributeSet;android.util.AttributeSet
+Android.Views.View+IOnApplyWindowInsetsListener, Mono.Android;android.view.View$OnApplyWindowInsetsListener
+Android.Views.View.IOnApplyWindowInsetsListener;android.view.View$OnApplyWindowInsetsListener
+android.view.View$OnApplyWindowInsetsListener;android.view.View$OnApplyWindowInsetsListener
+Android.Views.View+IOnClickListener, Mono.Android;android.view.View$OnClickListener
+Android.Views.View.IOnClickListener;android.view.View$OnClickListener
+android.view.View$OnClickListener;android.view.View$OnClickListener
+Android.Views.View+IOnClickListenerImplementor, Mono.Android;mono.android.view.View_OnClickListenerImplementor
+Android.Views.View.IOnClickListenerImplementor;mono.android.view.View_OnClickListenerImplementor
+mono.android.view.View_OnClickListenerImplementor;mono.android.view.View_OnClickListenerImplementor
+Android.Widget.CompoundButton+IOnCheckedChangeListener, Mono.Android;android.widget.CompoundButton$OnCheckedChangeListener
+Android.Widget.CompoundButton.IOnCheckedChangeListener;android.widget.CompoundButton$OnCheckedChangeListener
+android.widget.CompoundButton$OnCheckedChangeListener;android.widget.CompoundButton$OnCheckedChangeListener
+Android.Widget.CompoundButton+IOnCheckedChangeListenerImplementor, Mono.Android;mono.android.widget.CompoundButton_OnCheckedChangeListenerImplementor
+Android.Widget.CompoundButton.IOnCheckedChangeListenerImplementor;mono.android.widget.CompoundButton_OnCheckedChangeListenerImplementor
+mono.android.widget.CompoundButton_OnCheckedChangeListenerImplementor;mono.android.widget.CompoundButton_OnCheckedChangeListenerImplementor
+Android.Widget.RadioGroup+IOnCheckedChangeListener, Mono.Android;android.widget.RadioGroup$OnCheckedChangeListener
+Android.Widget.RadioGroup.IOnCheckedChangeListener;android.widget.RadioGroup$OnCheckedChangeListener
+android.widget.RadioGroup$OnCheckedChangeListener;android.widget.RadioGroup$OnCheckedChangeListener
+Android.Widget.RadioGroup+IOnCheckedChangeListenerImplementor, Mono.Android;mono.android.widget.RadioGroup_OnCheckedChangeListenerImplementor
+Android.Widget.RadioGroup.IOnCheckedChangeListenerImplementor;mono.android.widget.RadioGroup_OnCheckedChangeListenerImplementor
+mono.android.widget.RadioGroup_OnCheckedChangeListenerImplementor;mono.android.widget.RadioGroup_OnCheckedChangeListenerImplementor
+Java.IO.ICloseable, Mono.Android;java.io.Closeable
+Java.IO.ICloseable;java.io.Closeable
+java.io.Closeable;java.io.Closeable
+Java.Lang.ICharSequence, Mono.Android;java.lang.CharSequence
+Java.Lang.ICharSequence;java.lang.CharSequence
+java.lang.CharSequence;java.lang.CharSequence
+Java.Lang.IRunnable, Mono.Android;java.lang.Runnable
+Java.Lang.IRunnable;java.lang.Runnable
+java.lang.Runnable;java.lang.Runnable
+Java.Lang.Thread+RunnableImplementor, Mono.Android;mono.java.lang.RunnableImplementor
+Java.Lang.Thread.RunnableImplementor;mono.java.lang.RunnableImplementor
+mono.java.lang.RunnableImplementor;mono.java.lang.RunnableImplementor
+Java.Util.Concurrent.IExecutor, Mono.Android;java.util.concurrent.Executor
+Java.Util.Concurrent.IExecutor;java.util.concurrent.Executor
+java.util.concurrent.Executor;java.util.concurrent.Executor
+Java.Util.Functions.IConsumer, Mono.Android;java.util.function.Consumer
+Java.Util.Functions.IConsumer;java.util.function.Consumer
+java.util.function.Consumer;java.util.function.Consumer
+Java.Util.IIterator, Mono.Android;java.util.Iterator
+Java.Util.IIterator;java.util.Iterator
+java.util.Iterator;java.util.Iterator
+wallpaperTrade.BootReceiver, wallpaperTrade;crc640229306f97c153b1.BootReceiver
+wallpaperTrade.BootReceiver;crc640229306f97c153b1.BootReceiver
+wallpapertrade.BootReceiver;crc640229306f97c153b1.BootReceiver
+wallpaperTrade.MainActivity, wallpaperTrade;crc640229306f97c153b1.MainActivity
+wallpaperTrade.MainActivity;crc640229306f97c153b1.MainActivity
+wallpapertrade.MainActivity;crc640229306f97c153b1.MainActivity
+wallpaperTrade.MainActivity+InsetsListener, wallpaperTrade;crc640229306f97c153b1.MainActivity_InsetsListener
+wallpaperTrade.MainActivity.InsetsListener;crc640229306f97c153b1.MainActivity_InsetsListener
+wallpapertrade.MainActivity_InsetsListener;crc640229306f97c153b1.MainActivity_InsetsListener
+wallpaperTrade.ScreenReceiver, wallpaperTrade;crc640229306f97c153b1.ScreenReceiver
+wallpaperTrade.ScreenReceiver;crc640229306f97c153b1.ScreenReceiver
+wallpapertrade.ScreenReceiver;crc640229306f97c153b1.ScreenReceiver
+wallpaperTrade.WallpaperMonitorService, wallpaperTrade;crc640229306f97c153b1.WallpaperMonitorService
+wallpaperTrade.WallpaperMonitorService;crc640229306f97c153b1.WallpaperMonitorService
+wallpapertrade.WallpaperMonitorService;crc640229306f97c153b1.WallpaperMonitorService

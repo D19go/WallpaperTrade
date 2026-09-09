@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/root" android:layout_width="match_parent" android:layout_height="match_parent">
+    <ScrollView android:layout_width="match_parent" android:layout_height="match_parent">
+        <LinearLayout android:id="@+id/content" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="24dp">
+            <Button android:id="@+id/selectButton" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Selecionar imagens" />
+            <Button android:id="@+id/changeButton" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10dp" android:text="Trocar agora" />
+            <TextView android:id="@+id/status" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="18dp" android:text="Tela inicial: 0&#10;Tela de bloqueio: 0" android:textSize="18sp" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="24dp" android:text="Modo de troca" android:textSize="18sp" />
+            <RadioGroup android:id="@+id/modeGroup" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <RadioButton android:id="@+id/sequentialRadio" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Sequencial" android:checked="true" />
+                <RadioButton android:id="@+id/randomRadio" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Aleatório" />
+            </RadioGroup>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="18dp" android:text="Adicionar imagens à" android:textSize="18sp" />
+            <RadioGroup android:id="@+id/targetGroup" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <RadioButton android:id="@+id/systemRadio" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Tela inicial" />
+                <RadioButton android:id="@+id/lockRadio" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Tela de bloqueio" />
+                <RadioButton android:id="@+id/bothRadio" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Ambas" android:checked="true" />
+            </RadioGroup>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="18dp" android:text="Carrossel ativo em" android:textSize="18sp" />
+            <RadioGroup android:id="@+id/carouselTargetGroup" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <RadioButton android:id="@+id/carouselHomeRadio" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Tela inicial" />
+                <RadioButton android:id="@+id/carouselLockRadio" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Tela de bloqueio" />
+                <RadioButton android:id="@+id/carouselBothRadio" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Ambas" android:checked="true" />
+            </RadioGroup>
+            <Switch android:id="@+id/automaticSwitch" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="18dp" android:text="Troca automática" android:checked="true" />
+            <Button android:id="@+id/clearButton" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10dp" android:text="Apagar todas as imagens" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="28dp" android:text="Carrossel — Tela inicial" android:textSize="20sp" />
+            <GridLayout android:id="@+id/homeGallery" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:columnCount="2" android:alignmentMode="alignMargins" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="28dp" android:text="Carrossel — Tela de bloqueio" android:textSize="20sp" />
+            <GridLayout android:id="@+id/lockGallery" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:columnCount="2" android:alignmentMode="alignMargins" />
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout>
