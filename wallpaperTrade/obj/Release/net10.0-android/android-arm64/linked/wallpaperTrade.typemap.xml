@@ -1,5 +1,5 @@
-<api type="release" assembly-name="wallpaperTrade" mvid="9d9a50e54a8a417d9519741f97015549">
-  <module assembly-name="wallpaperTrade" mvid="9d9a50e54a8a417d9519741f97015549" mvid-bytes="5VCanYpKfUGVGXQflwFVSQ==">
+<api type="release" assembly-name="wallpaperTrade" mvid="153fb7bdfdcf477b90680ddae507bb33">
+  <module assembly-name="wallpaperTrade" mvid="153fb7bdfdcf477b90680ddae507bb33" mvid-bytes="vbc/Fc/9e0eQaA3a5Qe7Mw==">
     <types-scratch>
       <entry key="crc640229306f97c153b1/BootReceiver" java-name="crc640229306f97c153b1/BootReceiver" managed-type-name="wallpaperTrade.BootReceiver" token="33554434" />
       <entry key="crc640229306f97c153b1/MainActivity" java-name="crc640229306f97c153b1/MainActivity" managed-type-name="wallpaperTrade.MainActivity" token="33554435" />

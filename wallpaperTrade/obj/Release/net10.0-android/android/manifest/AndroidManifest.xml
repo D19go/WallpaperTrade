@@ -5,7 +5,7 @@
     As alterações feitas neste arquivo poderão causar comportamento incorreto e serão perdidas se
     o conteúdo for regenerado.
 -->
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.dsc.WallpaperTrade" android:versionCode="1" android:versionName="1.0">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="WallpaperTrade.WallpaperTrade" android:versionCode="1" android:versionName="1.0">
   <uses-sdk android:minSdkVersion="24" android:targetSdkVersion="36" />
   <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
   <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
@@ -33,6 +33,6 @@
       <meta-data android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE" android:value="Monitoramento da tela para troca automática de wallpaper" />
     </service>
     <receiver android:name="crc640229306f97c153b1.ScreenReceiver" android:enabled="false" android:exported="false" />
-    <provider android:name="mono.MonoRuntimeProvider" android:authorities="com.dsc.WallpaperTrade.mono.MonoRuntimeProvider.__mono_init__" android:exported="false" android:initOrder="1999999999" />
+    <provider android:name="mono.MonoRuntimeProvider" android:authorities="WallpaperTrade.WallpaperTrade.mono.MonoRuntimeProvider.__mono_init__" android:exported="false" android:initOrder="1999999999" />
   </application>
 </manifest>

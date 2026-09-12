@@ -1,14 +1,26 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Gabriel\\Desktop\\k\\wallpaperTrade\\",
+  "WorkspaceRootPath": "C:\\Users\\Gabriel\\Desktop\\k\\WallpaperTrade\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F6DA7243-F6F9-18F9-1E14-15C510F7A07B}|wallpaperTrade\\wallpaperTrade.csproj|c:\\users\\gabriel\\desktop\\k\\wallpapertrade\\wallpapertrade\\wallpapertrade.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{F6DA7243-F6F9-18F9-1E14-15C510F7A07B}|wallpaperTrade\\wallpaperTrade.csproj|solutionrelative:wallpapertrade\\wallpapertrade.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{F6DA7243-F6F9-18F9-1E14-15C510F7A07B}|wallpaperTrade\\wallpaperTrade.csproj|c:\\users\\gabriel\\desktop\\k\\wallpapertrade\\wallpapertrade\\androidmanifest.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{F6DA7243-F6F9-18F9-1E14-15C510F7A07B}|wallpaperTrade\\wallpaperTrade.csproj|solutionrelative:wallpapertrade\\androidmanifest.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F6DA7243-F6F9-18F9-1E14-15C510F7A07B}|wallpaperTrade\\wallpaperTrade.csproj|c:\\users\\gabriel\\desktop\\k\\wallpapertrade\\wallpapertrade\\mainactivity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F6DA7243-F6F9-18F9-1E14-15C510F7A07B}|wallpaperTrade\\wallpaperTrade.csproj|solutionrelative:wallpapertrade\\mainactivity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F6DA7243-F6F9-18F9-1E14-15C510F7A07B}|wallpaperTrade\\wallpaperTrade.csproj|c:\\users\\gabriel\\desktop\\k\\wallpapertrade\\wallpapertrade\\resources\\values\\appicon_background.xml||{6B79B2C4-8503-4A04-8248-ADCEF2B49CB1}",
+      "RelativeMoniker": "D:0:0:{F6DA7243-F6F9-18F9-1E14-15C510F7A07B}|wallpaperTrade\\wallpaperTrade.csproj|solutionrelative:wallpapertrade\\resources\\values\\appicon_background.xml||{6B79B2C4-8503-4A04-8248-ADCEF2B49CB1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F6DA7243-F6F9-18F9-1E14-15C510F7A07B}|wallpaperTrade\\wallpaperTrade.csproj|c:\\users\\gabriel\\desktop\\k\\wallpapertrade\\wallpapertrade\\resources\\values\\colors.xml||{6B79B2C4-8503-4A04-8248-ADCEF2B49CB1}",
+      "RelativeMoniker": "D:0:0:{F6DA7243-F6F9-18F9-1E14-15C510F7A07B}|wallpaperTrade\\wallpaperTrade.csproj|solutionrelative:wallpapertrade\\resources\\values\\colors.xml||{6B79B2C4-8503-4A04-8248-ADCEF2B49CB1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F6DA7243-F6F9-18F9-1E14-15C510F7A07B}|wallpaperTrade\\wallpaperTrade.csproj|c:\\users\\gabriel\\desktop\\k\\wallpapertrade\\wallpapertrade\\resources\\mipmap-anydpi-v26\\appicon_round.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{F6DA7243-F6F9-18F9-1E14-15C510F7A07B}|wallpaperTrade\\wallpaperTrade.csproj|solutionrelative:wallpapertrade\\resources\\mipmap-anydpi-v26\\appicon_round.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F6DA7243-F6F9-18F9-1E14-15C510F7A07B}|wallpaperTrade\\wallpaperTrade.csproj|c:\\users\\gabriel\\desktop\\k\\wallpapertrade\\wallpapertrade\\resources\\mipmap-anydpi-v26\\appicon_foreground.xml||{6B79B2C4-8503-4A04-8248-ADCEF2B49CB1}",
+      "RelativeMoniker": "D:0:0:{F6DA7243-F6F9-18F9-1E14-15C510F7A07B}|wallpaperTrade\\wallpaperTrade.csproj|solutionrelative:wallpapertrade\\resources\\mipmap-anydpi-v26\\appicon_foreground.xml||{6B79B2C4-8503-4A04-8248-ADCEF2B49CB1}"
     }
   ],
   "DocumentGroupContainers": [
@@ -27,28 +39,63 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "wallpaperTrade.csproj",
-              "DocumentMoniker": "C:\\Users\\Gabriel\\Desktop\\k\\wallpaperTrade\\wallpaperTrade\\wallpaperTrade.csproj",
-              "RelativeDocumentMoniker": "wallpaperTrade\\wallpaperTrade.csproj",
-              "ToolTip": "C:\\Users\\Gabriel\\Desktop\\k\\wallpaperTrade\\wallpaperTrade\\wallpaperTrade.csproj",
-              "RelativeToolTip": "wallpaperTrade\\wallpaperTrade.csproj",
-              "ViewState": "AgIAACEAAAAAAAAAAAAAAAsAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-09-08T21:23:42.129Z",
+              "Title": "AndroidManifest.xml",
+              "DocumentMoniker": "C:\\Users\\Gabriel\\Desktop\\k\\WallpaperTrade\\wallpaperTrade\\AndroidManifest.xml",
+              "RelativeDocumentMoniker": "wallpaperTrade\\AndroidManifest.xml",
+              "ToolTip": "C:\\Users\\Gabriel\\Desktop\\k\\WallpaperTrade\\wallpaperTrade\\AndroidManifest.xml",
+              "RelativeToolTip": "wallpaperTrade\\AndroidManifest.xml",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA4AAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003576|",
+              "WhenOpened": "2026-09-09T18:09:57.971Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "MainActivity.cs",
-              "DocumentMoniker": "C:\\Users\\Gabriel\\Desktop\\k\\wallpaperTrade\\wallpaperTrade\\MainActivity.cs",
-              "RelativeDocumentMoniker": "wallpaperTrade\\MainActivity.cs",
-              "ToolTip": "C:\\Users\\Gabriel\\Desktop\\k\\wallpaperTrade\\wallpaperTrade\\MainActivity.cs",
-              "RelativeToolTip": "wallpaperTrade\\MainActivity.cs",
-              "ViewState": "AgIAANIBAAAAAAAAAAAYwPgBAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-08T17:57:04.545Z",
-              "EditorCaption": ""
+              "Title": "appicon_background.xml",
+              "DocumentMoniker": "C:\\Users\\Gabriel\\Desktop\\k\\WallpaperTrade\\wallpaperTrade\\Resources\\values\\appicon_background.xml",
+              "RelativeDocumentMoniker": "wallpaperTrade\\Resources\\values\\appicon_background.xml",
+              "ToolTip": "C:\\Users\\Gabriel\\Desktop\\k\\WallpaperTrade\\wallpaperTrade\\Resources\\values\\appicon_background.xml",
+              "RelativeToolTip": "wallpaperTrade\\Resources\\values\\appicon_background.xml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003576|",
+              "WhenOpened": "2026-09-09T18:09:14.388Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "colors.xml",
+              "DocumentMoniker": "C:\\Users\\Gabriel\\Desktop\\k\\WallpaperTrade\\wallpaperTrade\\Resources\\values\\colors.xml",
+              "RelativeDocumentMoniker": "wallpaperTrade\\Resources\\values\\colors.xml",
+              "ToolTip": "C:\\Users\\Gabriel\\Desktop\\k\\WallpaperTrade\\wallpaperTrade\\Resources\\values\\colors.xml",
+              "RelativeToolTip": "wallpaperTrade\\Resources\\values\\colors.xml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003576|",
+              "WhenOpened": "2026-09-09T17:13:04.13Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "appicon_foreground.xml",
+              "DocumentMoniker": "C:\\Users\\Gabriel\\Desktop\\k\\WallpaperTrade\\wallpaperTrade\\Resources\\mipmap-anydpi-v26\\appicon_foreground.xml",
+              "RelativeDocumentMoniker": "wallpaperTrade\\Resources\\mipmap-anydpi-v26\\appicon_foreground.xml",
+              "ToolTip": "C:\\Users\\Gabriel\\Desktop\\k\\WallpaperTrade\\wallpaperTrade\\Resources\\mipmap-anydpi-v26\\appicon_foreground.xml",
+              "RelativeToolTip": "wallpaperTrade\\Resources\\mipmap-anydpi-v26\\appicon_foreground.xml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003576|",
+              "WhenOpened": "2026-09-09T17:09:55.893Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "appicon_round.xml",
+              "DocumentMoniker": "C:\\Users\\Gabriel\\Desktop\\k\\WallpaperTrade\\wallpaperTrade\\Resources\\mipmap-anydpi-v26\\appicon_round.xml",
+              "RelativeDocumentMoniker": "wallpaperTrade\\Resources\\mipmap-anydpi-v26\\appicon_round.xml",
+              "ToolTip": "C:\\Users\\Gabriel\\Desktop\\k\\WallpaperTrade\\wallpaperTrade\\Resources\\mipmap-anydpi-v26\\appicon_round.xml",
+              "RelativeToolTip": "wallpaperTrade\\Resources\\mipmap-anydpi-v26\\appicon_round.xml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003576|",
+              "WhenOpened": "2026-09-09T17:07:11.758Z"
             }
           ]
         }

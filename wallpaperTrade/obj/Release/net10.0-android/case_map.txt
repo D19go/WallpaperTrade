@@ -1,11 +1,16 @@
+drawable\appicon_foreground;drawable\appicon_foreground
+drawable\appicon_logo;drawable\appicon_logo
 drawable\wallpaper1;drawable\wallpaper1
 drawable\wallpaper2;drawable\wallpaper2
 drawable\wallpaper3;drawable\wallpaper3
 drawable\wallpaper4;drawable\wallpaper4
 layout\activity_main;layout\activity_main
 mipmap\appicon;mipmap\appicon
-mipmap\appicon_background;mipmap\appicon_background
+mipmap\appicon_colors;mipmap\appicon_colors
 mipmap\appicon_foreground;mipmap\appicon_foreground
 mipmap\appicon_round;mipmap\appicon_round
+mipmap\ic_launcher;mipmap\ic_launcher
+values\appicon_background;values\appicon_background
+values\colors;values\colors
 values\ic_launcher_background;values\ic_launcher_background
 values\strings;values\strings
