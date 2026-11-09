@@ -19,6 +19,11 @@ public class MainActivity : Activity
     private RadioGroup? targetGroup;
     private RadioGroup? carouselTargetGroup;
 
+    protected override void AttachBaseContext(Context? @base)
+    {
+        base.AttachBaseContext(@base == null ? null : ThemeManager.Wrap(@base));
+    }
+
     protected override void OnCreate(Bundle? savedInstanceState)
     {
         base.OnCreate(savedInstanceState);
@@ -81,6 +86,7 @@ public class MainActivity : Activity
 
         SetTargetRadioButtons();
         SetCarouselTargetRadioButtons();
+        SetupThemeGroup();
 
         automaticSwitch.CheckedChange += (_, e) => SetAutomatic(e.IsChecked);
 
@@ -193,6 +199,37 @@ public class MainActivity : Activity
             "lock" => Resource.Id.carouselLockRadio,
             _ => Resource.Id.carouselBothRadio
         });
+    }
+
+    private void SetupThemeGroup()
+    {
+        var themeGroup = FindViewById<RadioGroup>(Resource.Id.themeGroup);
+
+        if (themeGroup == null)
+            return;
+
+        themeGroup.Check(ThemeManager.GetMode(this) switch
+        {
+            ThemeManager.ModeLight => Resource.Id.themeLightRadio,
+            ThemeManager.ModeDark => Resource.Id.themeDarkRadio,
+            _ => Resource.Id.themeSystemRadio
+        });
+
+        themeGroup.CheckedChange += (_, e) =>
+        {
+            string mode = e.CheckedId switch
+            {
+                Resource.Id.themeLightRadio => ThemeManager.ModeLight,
+                Resource.Id.themeDarkRadio => ThemeManager.ModeDark,
+                _ => ThemeManager.ModeSystem
+            };
+
+            if (mode == ThemeManager.GetMode(this))
+                return;
+
+            ThemeManager.SetMode(this, mode);
+            Recreate();
+        };
     }
 
     private void PickPhotos()
