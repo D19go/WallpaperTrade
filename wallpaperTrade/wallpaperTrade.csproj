@@ -45,13 +45,14 @@
 
 	<ItemGroup>
 
-		<AndroidResource Include="..\..\..\..\Pictures\Saved Pictures\wallpaper1.jpg" Link="Resources\drawable\wallpaper1.jpg" />
+		<!-- Imagens da pasta Pictures do PC do desenvolvedor: só entram no build se existirem (no GitHub Actions não existem). -->
+		<AndroidResource Include="..\..\..\..\Pictures\Saved Pictures\wallpaper1.jpg" Link="Resources\drawable\wallpaper1.jpg" Condition="Exists('..\..\..\..\Pictures\Saved Pictures\wallpaper1.jpg')" />
 
-		<AndroidResource Include="..\..\..\..\Pictures\Saved Pictures\wallpaper2.jpg" Link="Resources\drawable\wallpaper2.jpg" />
+		<AndroidResource Include="..\..\..\..\Pictures\Saved Pictures\wallpaper2.jpg" Link="Resources\drawable\wallpaper2.jpg" Condition="Exists('..\..\..\..\Pictures\Saved Pictures\wallpaper2.jpg')" />
 
-		<AndroidResource Include="..\..\..\..\Pictures\Saved Pictures\wallpaper3.jpg" Link="Resources\drawable\wallpaper3.jpg" />
+		<AndroidResource Include="..\..\..\..\Pictures\Saved Pictures\wallpaper3.jpg" Link="Resources\drawable\wallpaper3.jpg" Condition="Exists('..\..\..\..\Pictures\Saved Pictures\wallpaper3.jpg')" />
 
-		<AndroidResource Include="..\..\..\..\Pictures\Saved Pictures\wallpaper4.jpg" Link="Resources\drawable\wallpaper4.jpg" />
+		<AndroidResource Include="..\..\..\..\Pictures\Saved Pictures\wallpaper4.jpg" Link="Resources\drawable\wallpaper4.jpg" Condition="Exists('..\..\..\..\Pictures\Saved Pictures\wallpaper4.jpg')" />
 
 	</ItemGroup>
 
