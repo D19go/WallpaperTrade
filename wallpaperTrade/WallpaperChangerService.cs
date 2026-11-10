@@ -301,15 +301,48 @@ public static class WallpaperChangerService
 
         try
         {
-            using var stream = File.OpenRead(path);
             WallpaperManagerFlags target = home ? WallpaperManagerFlags.System : WallpaperManagerFlags.Lock;
-            WallpaperManager.GetInstance(context).SetStream(stream, null, true, target);
+            var manager = WallpaperManager.GetInstance(context)!;
+
+            if (!ApplyOriented(context, manager, path, target))
+            {
+                // Se a decodificação falhar (formato estranho, pouca memória), usa o arquivo como está.
+                using var stream = File.OpenRead(path);
+                manager.SetStream(stream, null, true, target);
+            }
+
             prefs.Edit()!.PutInt(indexKey, index).Apply();
             return true;
         }
         catch
         {
             return false;
+        }
+    }
+
+    // Aplica a imagem com a orientação EXIF corrigida e recortada na proporção da tela (sem esticar).
+    private static bool ApplyOriented(Context context, WallpaperManager manager, string path, WallpaperManagerFlags target)
+    {
+        Android.Graphics.Bitmap? bitmap = null;
+
+        try
+        {
+            var (width, height) = ImageHelper.GetScreenSize(context);
+            bitmap = ImageHelper.LoadForWallpaper(path, width, height);
+
+            if (bitmap == null)
+                return false;
+
+            manager.SetBitmap(bitmap, null, true, target);
+            return true;
+        }
+        catch
+        {
+            return false;
+        }
+        finally
+        {
+            try { bitmap?.Recycle(); } catch { }
         }
     }
 
