@@ -35,6 +35,7 @@ Abra o arquivo no celular e, se o Android pedir, permita a instalação de apps 
 - Botão de **troca manual**.
 - **Detecção de imagens duplicadas** por hash SHA-256 (a duplicada é ignorada e o app informa quantas foram descartadas).
 - Galeria com miniaturas (decodificação com redução de amostragem para economizar memória) e exclusão individual.
+- **Tema do app**: Sistema (segue o aparelho), Claro ou Escuro, escolhido na tela principal e lembrado entre aberturas.
 - Persistência das configurações e das listas com `SharedPreferences`; as imagens são copiadas para o armazenamento privado do app.
 - Tentativas repetidas e *wake lock* parcial para concluir a troca mesmo com a tela desligada.
 - Solicitação de isenção da otimização de bateria ao ativar a troca automática.
@@ -54,6 +55,8 @@ Abra o arquivo no celular e, se o Android pedir, permita a instalação de apps 
 | `WallpaperChangerService.cs` | Regras de negócio: listas de imagens, próximo índice (sequencial/aleatório), deduplicação, aplicação do wallpaper |
 | `WallpaperMonitorService.cs` | Serviço em primeiro plano e receiver do evento de tela desligada |
 | `BootReceiver.cs` | Reinicia o serviço após boot e após atualização do app |
+| `ThemeManager.cs` | Tema do app (Sistema/Claro/Escuro): salva a escolha e força o modo noturno no contexto da Activity |
+| `Resources/values/themes.xml`, `Resources/values-night/themes.xml` | `AppTheme` nas variantes clara e escura |
 | `AndroidManifest.xml` | Permissões e declaração do serviço |
 | `Resources/layout/activity_main.xml` | Layout da tela principal |
 | `GifWallpaperService.cs` | Papel de parede animado: desenha GIFs (`AnimatedImageDrawable` no Android 9+, `Movie` nas versões anteriores) e imagens comuns |
