@@ -10,12 +10,11 @@ jobs:
         with:
           dotnet-version: '10.0.x'
       - run: dotnet workload install android
-      - name: Onde o AndroidJavaSource é usado
+      - name: Javac.targets
         run: |
           T=$(ls -d /usr/share/dotnet/packs/Microsoft.Android.Sdk.Linux/*/tools | head -1)
-          echo "tools: $T"
-          grep -rn "AndroidJavaSource" "$T"/*.targets "$T"/*.props 2>/dev/null | cut -c1-260
-      - name: Alvo que gera o jar de binding em apps
+          sed -n 30,230p "$T/Xamarin.Android.Javac.targets"
+      - name: AvailableItems
         run: |
           T=$(ls -d /usr/share/dotnet/packs/Microsoft.Android.Sdk.Linux/*/tools | head -1)
-          grep -n "_CompileBindingJava\|_CreateJavaSources\|_GenerateJavaStubs\|_CompileJava\b\|binding/bin\|AndroidJavaLibrary\|_AndroidJarFile\|ExcludeFromAndroid" "$T"/Xamarin.Android.Bindings.Core.targets "$T"/Xamarin.Android.Javac.targets "$T"/Xamarin.Android.Common.targets 2>/dev/null | cut -c1-240 | head -80
+          sed -n 50,62p "$T/Xamarin.Android.AvailableItems.targets"
