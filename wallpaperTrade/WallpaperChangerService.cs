@@ -301,6 +301,15 @@ public static class WallpaperChangerService
 
         try
         {
+            // Papel de parede animado ativo: só informa ao serviço qual arquivo mostrar (GIF ou imagem).
+            // Usar SetBitmap aqui substituiria o papel animado por uma imagem estática.
+            if (GifWallpaperService.IsActive(context, home))
+            {
+                GifWallpaperService.SetCurrent(context, home, images[index]);
+                prefs.Edit()!.PutInt(indexKey, index).Apply();
+                return true;
+            }
+
             WallpaperManagerFlags target = home ? WallpaperManagerFlags.System : WallpaperManagerFlags.Lock;
             var manager = WallpaperManager.GetInstance(context)!;
 

@@ -10,6 +10,22 @@ public static class ImageHelper
 {
     private const int MaxWallpaperSide = 4096;
 
+    // Detecta GIF pelo cabeçalho do arquivo ("GIF87a" / "GIF89a"), sem depender da extensão.
+    public static bool IsGif(string path)
+    {
+        try
+        {
+            using var stream = File.OpenRead(path);
+            Span<byte> header = stackalloc byte[4];
+
+            return stream.Read(header) == 4 && header[0] == (byte)'G' && header[1] == (byte)'I' && header[2] == (byte)'F' && header[3] == (byte)'8';
+        }
+        catch
+        {
+            return false;
+        }
+    }
+
     public static int GetOrientation(string path)
     {
         try
