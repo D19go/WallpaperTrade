@@ -3,6 +3,6 @@
 
 	<background android:drawable="@color/appicon_background" />
 
-	<foreground android:drawable="@mipmap/appicon_foreground" />
+	<foreground android:drawable="@drawable/appicon_adaptive_fg" />
 
 </adaptive-icon>
