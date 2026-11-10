@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">wallpaperTrade</string>
+    <string name="gif_wallpaper_description">Mostra os GIFs e as imagens escolhidas no Wallpaper Trade, com troca automática.</string>
 </resources>

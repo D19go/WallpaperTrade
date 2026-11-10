@@ -45,6 +45,15 @@
 
 	<ItemGroup>
 
+		<!-- Serviço do papel de parede animado, escrito em Java (ver o comentário no próprio arquivo). -->
+		<!-- Remove antes de incluir: o SDK já pode ter incluído estes .java como "binding" (Bind=true), e o mesmo arquivo seria compilado duas vezes (erro "defined multiple times" no D8). -->
+		<AndroidJavaSource Remove="Java\**\*.java" />
+		<AndroidJavaSource Include="Java\**\*.java" Bind="false" />
+
+	</ItemGroup>
+
+	<ItemGroup>
+
 		<!-- Imagens da pasta Pictures do PC do desenvolvedor: só entram no build se existirem (no GitHub Actions não existem). -->
 		<AndroidResource Include="..\..\..\..\Pictures\Saved Pictures\wallpaper1.jpg" Link="Resources\drawable\wallpaper1.jpg" Condition="Exists('..\..\..\..\Pictures\Saved Pictures\wallpaper1.jpg')" />
 

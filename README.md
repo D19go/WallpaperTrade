@@ -25,7 +25,8 @@ Abra o arquivo no celular e, se o Android pedir, permita a instalação de apps 
 
 ## Funcionalidades
 
-- Seleção de várias imagens de uma vez pela galeria (JPG/PNG; GIF ainda não é suportado).
+- Seleção de várias imagens de uma vez pela galeria (JPG, PNG e **GIF**).
+- **GIFs animados** por meio de um papel de parede animado próprio (`GifWallpaperService`): ative uma vez pelo botão "Ativar papel de parede animado (GIF)" e a troca automática passa a alternar GIFs e imagens comuns sem nova confirmação. Limites: o Android só aceita imagem estática pelo `WallpaperManager`, então sem ativar o modo animado um GIF aparece parado (primeiro quadro); antes do Android 14 a tela de bloqueio não tem papel animado independente, e GIFs animam apenas com a tela ligada (animação contínua gasta bateria).
 - **Listas separadas** para a tela inicial e para a tela de bloqueio.
 - Dois modos de troca: **sequencial** ou **aleatório** (no aleatório, a imagem atual não se repete em seguida).
 - Escolha do destino da troca: tela inicial, tela de bloqueio ou ambas.
@@ -58,6 +59,7 @@ Abra o arquivo no celular e, se o Android pedir, permita a instalação de apps 
 | `Resources/values/themes.xml`, `Resources/values-night/themes.xml` | `AppTheme` nas variantes clara e escura |
 | `AndroidManifest.xml` | Permissões e declaração do serviço |
 | `Resources/layout/activity_main.xml` | Layout da tela principal |
+| `GifWallpaperService.cs` | Papel de parede animado: desenha GIFs (`AnimatedImageDrawable` no Android 9+, `Movie` nas versões anteriores) e imagens comuns |
 | `ImageHelper.cs` | Leitura de imagens: orientação EXIF, miniaturas e preparo do papel de parede (recorte na proporção da tela) |
 
 ## Permissões

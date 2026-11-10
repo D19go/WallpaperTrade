@@ -4,6 +4,8 @@
         <LinearLayout android:id="@+id/content" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="24dp">
             <Button android:id="@+id/selectButton" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Selecionar imagens" />
             <Button android:id="@+id/changeButton" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10dp" android:text="Trocar agora" />
+            <Button android:id="@+id/liveButton" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10dp" android:text="Ativar papel de parede animado (GIF)" />
+            <Button android:id="@+id/staticButton" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10dp" android:text="Voltar ao papel estático" />
             <TextView android:id="@+id/status" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="18dp" android:text="Tela inicial: 0&#10;Tela de bloqueio: 0" android:textSize="18sp" />
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="24dp" android:text="Modo de troca" android:textSize="18sp" />
             <RadioGroup android:id="@+id/modeGroup" android:layout_width="wrap_content" android:layout_height="wrap_content">
