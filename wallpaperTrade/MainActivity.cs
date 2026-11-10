@@ -497,24 +497,7 @@ public class MainActivity : Activity
 
     private Bitmap? LoadThumbnail(string path)
     {
-        var options = new BitmapFactory.Options { InJustDecodeBounds = true };
-
-        BitmapFactory.DecodeFile(path, options);
-
-        options.InSampleSize = CalculateSample(options.OutWidth, options.OutHeight);
-        options.InJustDecodeBounds = false;
-
-        return BitmapFactory.DecodeFile(path, options);
-    }
-
-    private int CalculateSample(int width, int height)
-    {
-        int sample = 1;
-
-        while (width / sample > 600 || height / sample > 600)
-            sample *= 2;
-
-        return sample;
+        return ImageHelper.LoadThumbnail(path, 600);
     }
 
     private int Dp(int value)
