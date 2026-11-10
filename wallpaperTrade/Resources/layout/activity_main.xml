@@ -22,6 +22,12 @@
                 <RadioButton android:id="@+id/carouselLockRadio" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Tela de bloqueio" />
                 <RadioButton android:id="@+id/carouselBothRadio" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Ambas" android:checked="true" />
             </RadioGroup>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="18dp" android:text="Tema" android:textSize="18sp" />
+            <RadioGroup android:id="@+id/themeGroup" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <RadioButton android:id="@+id/themeSystemRadio" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Sistema" android:checked="true" />
+                <RadioButton android:id="@+id/themeLightRadio" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Claro" />
+                <RadioButton android:id="@+id/themeDarkRadio" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Escuro" />
+            </RadioGroup>
             <Switch android:id="@+id/automaticSwitch" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="18dp" android:text="Troca automática" android:checked="true" />
             <Button android:id="@+id/clearButton" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10dp" android:text="Apagar todas as imagens" />
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="28dp" android:text="Carrossel — Tela inicial" android:textSize="20sp" />

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<!-- Tema claro. O tema escuro fica em values-night/themes.xml. -->
+	<style name="AppTheme" parent="android:Theme.DeviceDefault.Light">
+		<!-- Impede o "escurecimento forçado" do Android quando o usuário escolhe Claro com o aparelho em modo escuro. -->
+		<item name="android:forceDarkAllowed">false</item>
+	</style>
+</resources>
