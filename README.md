@@ -18,6 +18,7 @@ Aplicativo Android que troca automaticamente o papel de parede da tela inicial e
 - Persistência das configurações e das listas com `SharedPreferences`; as imagens são copiadas para o armazenamento privado do app.
 - Tentativas repetidas e *wake lock* parcial para concluir a troca mesmo com a tela desligada.
 - Solicitação de isenção da otimização de bateria ao ativar a troca automática.
+- **Orientação EXIF respeitada** (fotos de câmera não ficam de lado) e papel de parede recortado no centro, na proporção da tela, sem esticar a imagem.
 
 ## Tecnologias
 
@@ -35,6 +36,7 @@ Aplicativo Android que troca automaticamente o papel de parede da tela inicial e
 | `BootReceiver.cs` | Reinicia o serviço após boot e após atualização do app |
 | `AndroidManifest.xml` | Permissões e declaração do serviço |
 | `Resources/layout/activity_main.xml` | Layout da tela principal |
+| `ImageHelper.cs` | Leitura de imagens: orientação EXIF, miniaturas e preparo do papel de parede (recorte na proporção da tela) |
 
 ## Permissões
 
