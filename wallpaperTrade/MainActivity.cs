@@ -39,6 +39,8 @@ public class MainActivity : Activity
 
         selectButton.Click += (_, _) => PickPhotos();
         changeButton.Click += (_, _) => WallpaperChangerService.ChangeReliable(this);
+        FindViewById<Button>(Resource.Id.liveButton)!.Click += (_, _) => ActivateLiveWallpaper();
+        FindViewById<Button>(Resource.Id.staticButton)!.Click += (_, _) => BackToStaticWallpaper();
 
         clearButton.Click += (_, _) =>
         {
@@ -103,6 +105,45 @@ public class MainActivity : Activity
 
         if (WallpaperMonitorService.IsAutomaticEnabled(this))
             StartAutomaticService();
+
+        UpdateStatus(); // o usuário pode ter ativado o papel animado no diálogo do sistema
+    }
+
+    // GIFs só rodam como papel de parede animado: o Android pede a confirmação do usuário uma vez.
+    private void ActivateLiveWallpaper()
+    {
+        try
+        {
+            var intent = new Intent(WallpaperManager.ActionChangeLiveWallpaper);
+            intent.PutExtra(WallpaperManager.ExtraLiveWallpaperComponent, GifWallpaperService.Component(this));
+            StartActivity(intent);
+        }
+        catch (Exception)
+        {
+            try
+            {
+                StartActivity(new Intent(WallpaperManager.ActionLiveWallpaperChooser));
+            }
+            catch (Exception ex)
+            {
+                ShowError($"Não foi possível abrir a escolha de papel de parede animado:\n{ex.Message}");
+            }
+        }
+    }
+
+    private void BackToStaticWallpaper()
+    {
+        try
+        {
+            WallpaperManager.GetInstance(this)?.Clear();
+        }
+        catch (Exception ex)
+        {
+            ShowError($"Erro ao desativar o modo animado:\n{ex.Message}");
+        }
+
+        WallpaperChangerService.ChangeReliable(this);
+        UpdateStatus();
     }
 
     private void SetAutomatic(bool enabled)
@@ -274,13 +315,7 @@ public class MainActivity : Activity
 
             bool isGif = mime.Equals("image/gif", StringComparison.OrdinalIgnoreCase) || (displayName?.EndsWith(".gif", StringComparison.OrdinalIgnoreCase) ?? false);
 
-            if (isGif)
-            {
-                ShowError("GIF não é suportado nesta versão. Selecione JPG ou PNG.");
-                return 0;
-            }
-
-            return SaveImage(uri, addHome, addLock);
+            return SaveImage(uri, addHome, addLock, isGif);
         }
         catch (Exception ex)
         {
@@ -289,9 +324,9 @@ public class MainActivity : Activity
         }
     }
 
-    private int SaveImage(Android.Net.Uri uri, bool addHome, bool addLock)
+    private int SaveImage(Android.Net.Uri uri, bool addHome, bool addLock, bool isGif)
     {
-        string fileName = $"wallpaper_{Guid.NewGuid():N}.jpg";
+        string fileName = $"wallpaper_{Guid.NewGuid():N}.{(isGif ? "gif" : "jpg")}";
         string path = System.IO.Path.Combine(FilesDir!.AbsolutePath, fileName);
 
         try
@@ -376,9 +411,11 @@ public class MainActivity : Activity
         int homeCount = WallpaperChangerService.Count(this, "home");
         int lockCount = WallpaperChangerService.Count(this, "lock");
 
+        string live = GifWallpaperService.IsActive(this, true) ? "ativo" : "inativo";
+
         if (added == 0 && duplicated == 0 && failed == 0)
         {
-            status!.Text = $"Tela inicial: {homeCount}\nTela de bloqueio: {lockCount}";
+            status!.Text = $"Tela inicial: {homeCount}\nTela de bloqueio: {lockCount}\nPapel animado (GIF): {live}";
             return;
         }
 
@@ -390,7 +427,7 @@ public class MainActivity : Activity
         if (failed > 0)
             status.Text += $"\n{failed} falha(s) ao importar";
 
-        status.Text += $"\n\nTela inicial: {homeCount}\nTela de bloqueio: {lockCount}";
+        status.Text += $"\n\nTela inicial: {homeCount}\nTela de bloqueio: {lockCount}\nPapel animado (GIF): {live}";
     }
 
     private void UpdateGallery()
@@ -440,6 +477,9 @@ public class MainActivity : Activity
         image.SetScaleType(ImageView.ScaleType.CenterCrop);
         image.LayoutParameters = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MatchParent, Dp(180));
         item.AddView(image);
+
+        if (ImageHelper.IsGif(path))
+            item.AddView(new TextView(this) { Text = "GIF animado", Gravity = GravityFlags.Center });
 
         var delete = new Button(this) { Text = "Excluir" };
 
