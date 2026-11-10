@@ -4,6 +4,25 @@ Aplicativo Android que troca automaticamente o papel de parede da tela inicial e
 
 > **Status:** projeto pessoal, em desenvolvimento.
 
+## Baixar o app (APK)
+
+**[⬇️ Baixar a versão mais recente (WallpaperTrade.apk)](https://github.com/D19go/WallpaperTrade/releases/download/latest/WallpaperTrade.apk)** · [Todas as versões](https://github.com/D19go/WallpaperTrade/releases)
+
+Abra o arquivo no celular e, se o Android pedir, permita a instalação de apps de fontes desconhecidas para o navegador ou gerenciador de arquivos usado. O APK é gerado automaticamente pelo GitHub Actions a cada atualização da `main`.
+
+<details>
+<summary>Para quem mantém o projeto (versões fixas e assinatura)</summary>
+
+- **Versão fixa:** `git tag v1.0.0 && git push origin v1.0.0` cria uma release `v1.0.0` com o APK.
+- **Assinatura:** para o APK ser assinado com a sua keystore (e atualizar o app instalado sem desinstalar), cadastre em *Settings → Secrets and variables → Actions*:
+  - `ANDROID_KEYSTORE_BASE64`: o arquivo `.keystore` em base64. No PowerShell: `[Convert]::ToBase64String([IO.File]::ReadAllBytes("caminho\wallpaperTrade.keystore"))`
+  - `ANDROID_KEYSTORE_PASSWORD`: senha da keystore
+  - `ANDROID_KEY_ALIAS` (opcional, padrão `wallpapertrade`) e `ANDROID_KEY_PASSWORD` (opcional, padrão igual à senha da keystore)
+- **Sem esses segredos**, o APK é assinado com uma chave de depuração temporária: instala normalmente, mas, a cada nova versão, é preciso desinstalar a anterior antes.
+- Os arquivos `.keystore` ficam fora do repositório (`.gitignore`); nunca os envie ao GitHub.
+
+</details>
+
 ## Funcionalidades
 
 - Seleção de várias imagens de uma vez pela galeria (JPG, PNG e **GIF**).

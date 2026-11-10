@@ -1,0 +1,133 @@
+name: Compilar APK
+
+on:
+  push:
+    branches: [main, 'feature/**', 'fix/**', 'ci/**']
+    tags: ['v*']
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+# "contents: write" é necessário para criar/atualizar Releases.
+permissions:
+  contents: write
+
+concurrency:
+  group: build-apk-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  PROJECT: wallpaperTrade/wallpaperTrade.csproj
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - name: Instalar workload do Android
+        run: dotnet workload install android
+
+      - name: Preparar assinatura
+        id: signing
+        env:
+          KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+        run: |
+          if [ -n "$KEYSTORE_BASE64" ]; then
+            echo "$KEYSTORE_BASE64" | base64 -d > "$RUNNER_TEMP/release.keystore"
+            echo "signed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "signed=false" >> "$GITHUB_OUTPUT"
+            echo "::warning::Segredos de assinatura não configurados: o APK será assinado com uma chave de depuração temporária. Ele instala normalmente, mas não atualiza uma versão instalada com outra assinatura (é preciso desinstalar antes). Veja a seção 'Baixar o app' do README."
+          fi
+
+      - name: Compilar APK
+        env:
+          ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
+          ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+        run: |
+          if [[ "$GITHUB_REF" == refs/tags/v* ]]; then
+            DISPLAY_VERSION="${GITHUB_REF_NAME#v}"
+          else
+            DISPLAY_VERSION="1.0.${GITHUB_RUN_NUMBER}"
+          fi
+
+          ARGS=(
+            -f net10.0-android
+            -c Release
+            -p:AndroidPackageFormat=apk
+            -p:AndroidPackageFormats=apk
+            -p:ApplicationVersion="${GITHUB_RUN_NUMBER}"
+            -p:ApplicationDisplayVersion="${DISPLAY_VERSION}"
+            -p:InstallAndroidDependencies=true
+            -p:AcceptAndroidSDKLicenses=True
+          )
+
+          if [ "${{ steps.signing.outputs.signed }}" = "true" ]; then
+            KEY_PASS_VAR=ANDROID_KEY_PASSWORD
+            [ -z "$ANDROID_KEY_PASSWORD" ] && KEY_PASS_VAR=ANDROID_KEYSTORE_PASSWORD
+            ARGS+=(
+              -p:AndroidKeyStore=true
+              "-p:AndroidSigningKeyStore=$RUNNER_TEMP/release.keystore"
+              "-p:AndroidSigningKeyAlias=${ANDROID_KEY_ALIAS:-wallpapertrade}"
+              -p:AndroidSigningStorePass=env:ANDROID_KEYSTORE_PASSWORD
+              "-p:AndroidSigningKeyPass=env:${KEY_PASS_VAR}"
+            )
+          else
+            ARGS+=(-p:AndroidKeyStore=false)
+          fi
+
+          echo "DISPLAY_VERSION=${DISPLAY_VERSION}" >> "$GITHUB_ENV"
+          dotnet publish "$PROJECT" "${ARGS[@]}"
+
+      - name: Localizar APK
+        run: |
+          APK=$(find wallpaperTrade/bin/Release -name '*-Signed.apk' | head -n 1)
+          [ -z "$APK" ] && APK=$(find wallpaperTrade/bin/Release -name '*.apk' | head -n 1)
+          if [ -z "$APK" ]; then
+            echo "::error::Nenhum APK foi gerado."
+            exit 1
+          fi
+          mkdir -p dist
+          cp "$APK" dist/WallpaperTrade.apk
+          ls -l dist
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: WallpaperTrade-apk
+          path: dist/WallpaperTrade.apk
+          retention-days: 14
+
+      # A cada push na main, a versão "latest" é recriada com o APK mais novo.
+      - name: Publicar versão mais recente
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release delete latest --cleanup-tag --yes || true
+          gh release create latest dist/WallpaperTrade.apk \
+            --target "$GITHUB_SHA" \
+            --title "Versão mais recente" \
+            --notes "APK gerado automaticamente a partir do commit ${GITHUB_SHA:0:7} (versão ${DISPLAY_VERSION}, build ${GITHUB_RUN_NUMBER})."
+
+      # Ao enviar uma tag vX.Y.Z, cria uma versão fixa.
+      - name: Publicar versão com tag
+        if: startsWith(github.ref, 'refs/tags/v')
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "$GITHUB_REF_NAME" dist/WallpaperTrade.apk \
+            --title "WallpaperTrade ${GITHUB_REF_NAME}" \
+            --generate-notes
