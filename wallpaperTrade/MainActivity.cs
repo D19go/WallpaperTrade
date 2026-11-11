@@ -275,8 +275,12 @@ public class MainActivity : Activity
 
     private void PickPhotos()
     {
-        var intent = new Intent(Intent.ActionPick);
-        intent.SetDataAndType(MediaStore.Images.Media.ExternalContentUri, "image/*");
+        // GetContent com image/* + image/gif: mostra galeria, Fotos e arquivos, inclusive GIFs
+        // (o ActionPick sobre o MediaStore, usado antes, esconde GIFs em vários aparelhos).
+        var intent = new Intent(Intent.ActionGetContent);
+        intent.SetType("image/*");
+        intent.AddCategory(Intent.CategoryOpenable);
+        intent.PutExtra(Intent.ExtraMimeTypes, new[] { "image/jpeg", "image/png", "image/webp", "image/gif", "image/heic", "image/heif" });
         intent.PutExtra(Intent.ExtraAllowMultiple, true);
         StartActivityForResult(Intent.CreateChooser(intent, "Selecionar imagens"), PickImages);
     }
@@ -376,9 +380,21 @@ public class MainActivity : Activity
                 return 0;
             }
 
-            using var output = OpenFileOutput(fileName, FileCreationMode.Private);
-            input.CopyTo(output);
-            output.Flush();
+            using (var output = OpenFileOutput(fileName, FileCreationMode.Private))
+            {
+                input.CopyTo(output);
+                output.Flush();
+            }
+
+            // Nem todo seletor informa o tipo/nome certo: confere pelo conteúdo do arquivo.
+            if (!isGif && File.Exists(path) && ImageHelper.IsGif(path))
+            {
+                string gifName = System.IO.Path.ChangeExtension(fileName, ".gif");
+                string gifPath = System.IO.Path.Combine(FilesDir!.AbsolutePath, gifName);
+                File.Move(path, gifPath);
+                fileName = gifName;
+                path = gifPath;
+            }
 
             if (!File.Exists(path))
             {
