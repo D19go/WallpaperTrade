@@ -116,25 +116,57 @@ public class MainActivity : Activity
     }
 
     // GIFs só rodam como papel de parede animado: o Android pede a confirmação do usuário uma vez.
+    // Cada fabricante trata isso de um jeito, então tenta várias formas, da mais direta à mais genérica.
     private void ActivateLiveWallpaper()
     {
-        try
+        var errors = new List<string>();
+
+        var attempts = new List<(string Name, Func<Intent> Build)>
         {
-            var intent = new Intent(WallpaperManager.ActionChangeLiveWallpaper);
-            intent.PutExtra(WallpaperManager.ExtraLiveWallpaperComponent, GifWallpaperService.Component(this));
-            StartActivity(intent);
-        }
-        catch (Exception)
+            // 1) Abre a confirmação já apontando para o nosso serviço.
+            ("confirmação direta", () =>
+            {
+                var i = new Intent(WallpaperManager.ActionChangeLiveWallpaper);
+                i.PutExtra(WallpaperManager.ExtraLiveWallpaperComponent, GifWallpaperService.Component(this));
+                return i;
+            }),
+            // 2) Lista de papéis de parede animados do sistema.
+            ("lista de papéis animados", () => new Intent(WallpaperManager.ActionLiveWallpaperChooser)),
+            // 3) Seletor de papéis de parede genérico (existe em quase todo aparelho).
+            ("seletor de papéis de parede", () => Intent.CreateChooser(new Intent(Intent.ActionSetWallpaper), "Escolher papel de parede")!),
+        };
+
+        foreach (var (name, build) in attempts)
         {
             try
             {
-                StartActivity(new Intent(WallpaperManager.ActionLiveWallpaperChooser));
+                var intent = build();
+
+                if (intent.ResolveActivity(PackageManager!) == null && name != "seletor de papéis de parede")
+                {
+                    errors.Add($"{name}: nenhum app do aparelho abre isso");
+                    continue;
+                }
+
+                StartActivity(intent);
+
+                if (name != "confirmação direta")
+                    ShowError("Procure por \"Wallpaper Trade (animado)\" na lista e toque em Definir.");
+
+                return;
             }
             catch (Exception ex)
             {
-                ShowError($"Não foi possível abrir a escolha de papel de parede animado:\n{ex.Message}");
+                errors.Add($"{name}: {ex.GetType().Name} - {ex.Message}");
             }
         }
+
+        // Nada funcionou: mostra tudo, para dar para diagnosticar. Dá para ativar à mão também.
+        new AlertDialog.Builder(this)!
+            .SetTitle("Não foi possível abrir a escolha de papel animado")!
+            .SetMessage(string.Join("\n\n", errors) + "\n\nAlternativa: segure a tela inicial > Papéis de parede > Papéis de parede animados > Wallpaper Trade (animado).")!
+            .SetPositiveButton("OK", (EventHandler<DialogClickEventArgs>?)null)!
+            .Show();
     }
 
     private void BackToStaticWallpaper()
