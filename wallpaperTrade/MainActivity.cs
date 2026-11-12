@@ -161,12 +161,36 @@ public class MainActivity : Activity
             }
         }
 
-        // Nada funcionou: mostra tudo, para dar para diagnosticar. Dá para ativar à mão também.
+        // Nada funcionou: mostra tudo, para dar para diagnosticar.
         new AlertDialog.Builder(this)!
-            .SetTitle("Não foi possível abrir a escolha de papel animado")!
-            .SetMessage(string.Join("\n\n", errors) + "\n\nAlternativa: segure a tela inicial > Papéis de parede > Papéis de parede animados > Wallpaper Trade (animado).")!
+            .SetTitle("Este aparelho não abre a escolha de papel animado")!
+            .SetMessage(
+                "Diagnóstico:\n" + BuildLiveWallpaperDiagnostics() +
+                "\n\nSem essa tela do sistema, o Android não deixa o app ativar o papel animado sozinho. " +
+                "Os GIFs continuam funcionando na troca automática, mas como imagem parada (primeiro quadro).\n\n" +
+                "Erros:\n" + string.Join("\n", errors))!
             .SetPositiveButton("OK", (EventHandler<DialogClickEventArgs>?)null)!
             .Show();
+    }
+
+    // Resumo do que o aparelho oferece para papéis animados (para saber se é limitação do aparelho).
+    private string BuildLiveWallpaperDiagnostics()
+    {
+        var pm = PackageManager!;
+        string feature = pm.HasSystemFeature("android.software.live_wallpaper") ? "sim" : "não";
+
+        string Handler(Intent i) => i.ResolveActivity(pm) != null ? "existe" : "não existe";
+
+        var direct = new Intent(WallpaperManager.ActionChangeLiveWallpaper);
+        var chooser = new Intent(WallpaperManager.ActionLiveWallpaperChooser);
+        var setWallpaper = new Intent(Intent.ActionSetWallpaper);
+
+        return $"Aparelho: {Build.Manufacturer} {Build.Model}\n" +
+               $"Android: {Build.VERSION.Release} (API {(int)Build.VERSION.SdkInt})\n" +
+               $"Declara suporte a papel animado: {feature}\n" +
+               $"Tela de confirmação: {Handler(direct)}\n" +
+               $"Lista de papéis animados: {Handler(chooser)}\n" +
+               $"Seletor de papéis de parede: {Handler(setWallpaper)}";
     }
 
     private void BackToStaticWallpaper()
