@@ -10,7 +10,7 @@ using Android.Widget;
 namespace wallpaperTrade;
 
 [Activity(MainLauncher = true, Exported = true, Label = "Wallpaper Trade")]
-public class MainActivity : Activity
+public class MainActivity : ScreenActivity
 {
     private const int PickImages = 100;
     private const string MainPrefs = "wallpaper_main";
@@ -18,11 +18,6 @@ public class MainActivity : Activity
     private TextView? status;
     private RadioGroup? targetGroup;
     private RadioGroup? carouselTargetGroup;
-
-    protected override void AttachBaseContext(Context? @base)
-    {
-        base.AttachBaseContext(@base == null ? null : ThemeManager.Wrap(@base));
-    }
 
     protected override void OnCreate(Bundle? savedInstanceState)
     {
