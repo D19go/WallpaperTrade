@@ -29,6 +29,7 @@ Abra o arquivo no celular e, se o Android pedir, permita a instalação de apps 
 
 - Seleção de várias imagens de uma vez pela galeria (JPG, PNG e **GIF**).
 - **GIFs animados** por meio de um papel de parede animado próprio (`GifWallpaperService`): ative uma vez pelo botão "Ativar papel de parede animado (GIF)" e a troca automática passa a alternar GIFs e imagens comuns sem nova confirmação. Limites: o Android só aceita imagem estática pelo `WallpaperManager`, então sem ativar o modo animado um GIF aparece parado (primeiro quadro); antes do Android 14 a tela de bloqueio não tem papel animado independente, e GIFs animam apenas com a tela ligada (animação contínua gasta bateria).
+- **Telas de teste de camada** (ícone no canto superior direito para trocar de tela): *Overlay sobre os apps* (janela por cima de tudo, toques atravessam), *Camada no launcher* (tela inicial simulada com fundo → camada → ícones) e *Widget* (imagem na tela inicial). Aceitam imagem, GIF e vídeo, exceto o widget, que mostra um quadro parado.
 - **Listas separadas** para a tela inicial e para a tela de bloqueio.
 - Dois modos de troca: **sequencial** ou **aleatório** (no aleatório, a imagem atual não se repete em seguida).
 - Escolha do destino da troca: tela inicial, tela de bloqueio ou ambas.
