@@ -2,7 +2,9 @@
 
 Aplicativo Android que troca automaticamente o papel de parede da tela inicial e/ou da tela de bloqueio **sempre que a tela é desligada**, usando uma coleção de imagens escolhida pelo próprio usuário.
 
-> **Status:** projeto pessoal, em desenvolvimento.
+> **Status:** projeto concluído. ✅ O objetivo foi alcançado: o app troca o papel de parede automaticamente a cada vez que a tela é desligada, do jeito que eu queria. Não está previsto continuar o desenvolvimento.
+>
+> **Observação:** o papel de parede animado (GIF) depende de uma tela do sistema que nem todo aparelho tem. Em aparelhos sem ela (como o Moto G34 5G, onde testei), o GIF aparece como imagem parada, com o primeiro quadro.
 
 ## Baixar o app (APK)
 
