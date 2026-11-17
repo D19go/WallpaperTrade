@@ -26,21 +26,21 @@ public class OverlayActivity : ScreenActivity
         content.AddView(Ui.ActionButton(this, "Escolher imagem, GIF ou vídeo", () => LayerMedia.Pick(this)));
 
         content.AddView(Ui.Label(this, "Transparência da camada", 16, false, 18));
-        var seek = new SeekBar(this) { Max = 100, Progress = OverlayService.GetOpacity(this) };
+        var seek = new SeekBar(this) { Max = 100, Progress = LayerOverlayService.GetOpacity(this) };
         seek.StopTrackingTouch += (_, _) =>
         {
             int value = Math.Max(10, seek.Progress);
-            OverlayService.SetOpacity(this, value);
+            LayerOverlayService.SetOpacity(this, value);
 
-            if (OverlayService.IsRunning)
-                OverlayService.Start(this);
+            if (LayerOverlayService.IsRunning)
+                LayerOverlayService.Start(this);
         };
         content.AddView(seek);
 
         content.AddView(Ui.ActionButton(this, "Ligar camada", TurnOn));
         content.AddView(Ui.ActionButton(this, "Desligar camada", () =>
         {
-            OverlayService.Stop(this);
+            LayerOverlayService.Stop(this);
             status?.PostDelayed(UpdateStatus, 400);
         }));
 
@@ -59,11 +59,11 @@ public class OverlayActivity : ScreenActivity
         if (!Settings.CanDrawOverlays(this))
         {
             Toast.MakeText(this, "Permita \"Exibir sobre outros apps\" para o Wallpaper Trade e volte.", ToastLength.Long)!.Show();
-            StartActivity(new Intent(Settings.ActionManageOverlayPermission, Uri.Parse("package:" + PackageName)));
+            StartActivity(new Intent(Settings.ActionManageOverlayPermission, Android.Net.Uri.Parse("package:" + PackageName)));
             return;
         }
 
-        OverlayService.Start(this);
+        LayerOverlayService.Start(this);
         status?.PostDelayed(UpdateStatus, 400);
     }
 
@@ -73,8 +73,8 @@ public class OverlayActivity : ScreenActivity
             return;
 
         status.Text = $"Permissão \"Exibir sobre outros apps\": {(Settings.CanDrawOverlays(this) ? "concedida" : "não concedida")}\n" +
-                      $"Camada: {(OverlayService.IsRunning ? "ligada" : "desligada")}\n" +
-                      LayerMedia.Describe(this, OverlayService.Slot);
+                      $"Camada: {(LayerOverlayService.IsRunning ? "ligada" : "desligada")}\n" +
+                      LayerMedia.Describe(this, LayerOverlayService.Slot);
     }
 
     protected override void OnActivityResult(int requestCode, Result resultCode, Intent? data)
@@ -84,12 +84,12 @@ public class OverlayActivity : ScreenActivity
         if (requestCode != LayerMedia.PickRequest || resultCode != Result.Ok)
             return;
 
-        string? error = LayerMedia.HandlePick(this, data, OverlayService.Slot);
+        string? error = LayerMedia.HandlePick(this, data, LayerOverlayService.Slot);
 
         if (error != null)
             Toast.MakeText(this, error, ToastLength.Long)!.Show();
-        else if (OverlayService.IsRunning)
-            OverlayService.Start(this);
+        else if (LayerOverlayService.IsRunning)
+            LayerOverlayService.Start(this);
 
         UpdateStatus();
     }

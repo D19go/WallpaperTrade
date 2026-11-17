@@ -29,7 +29,7 @@ public class LauncherLayerActivity : ScreenActivity
 
         // Camada 0: plano de fundo (simulado).
         var background = new View(this);
-        background.Background = new GradientDrawable(GradientDrawable.Orientation.TopBottom, new[] { Color.ParseColor("#1B2A49"), Color.ParseColor("#6B2D5C") });
+        background.Background = new GradientDrawable(GradientDrawable.Orientation.TopBottom, new[] { Color.ParseColor("#1B2A49").ToArgb(), Color.ParseColor("#6B2D5C").ToArgb() });
         root.AddView(background, new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MatchParent, ViewGroup.LayoutParams.MatchParent));
 
         // Camada 1: a mídia escolhida.

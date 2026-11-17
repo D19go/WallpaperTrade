@@ -10,7 +10,7 @@ namespace wallpaperTrade;
 // Método 1: janela própria desenhada por cima de tudo (permissão "Exibir sobre outros apps").
 // Os toques atravessam a camada (NotTouchable), então a tela por baixo continua funcionando.
 [Service(Enabled = true, Exported = false, ForegroundServiceType = Android.Content.PM.ForegroundService.TypeSpecialUse)]
-public class OverlayService : Service
+public class LayerOverlayService : Service
 {
     public const string Slot = "overlay";
     public const string OpacityKey = "overlay_opacity";
@@ -33,7 +33,7 @@ public class OverlayService : Service
 
     public static void Start(Context context)
     {
-        var intent = new Intent(context, typeof(OverlayService));
+        var intent = new Intent(context, typeof(LayerOverlayService));
 
         if (Build.VERSION.SdkInt >= BuildVersionCodes.O)
             context.StartForegroundService(intent);
@@ -43,7 +43,7 @@ public class OverlayService : Service
 
     public static void Stop(Context context)
     {
-        context.StartService(new Intent(context, typeof(OverlayService)).SetAction(StopAction));
+        context.StartService(new Intent(context, typeof(LayerOverlayService)).SetAction(StopAction));
     }
 
     public override void OnCreate()
